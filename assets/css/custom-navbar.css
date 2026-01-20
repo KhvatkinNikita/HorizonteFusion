@@ -1,0 +1,116 @@
+/* Custom navbar adjustments: center items and enlarge links (desktop only) */
+@media (min-width: 768px) {
+  /* Make the nav container a horizontal flex row so header, nav and attr-nav align */
+  nav.navbar.bootsnav > .container {
+    display: flex;
+    align-items: center;
+    /* keep spacing but control ordering below so attr-nav stays right */
+    justify-content: space-between;
+  }
+
+  nav.navbar.bootsnav .navbar-collapse {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    /* ensure collapse can grow to take center space */
+    flex: 1 1 auto;
+  }
+
+  nav.navbar.bootsnav .navbar-nav {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav.navbar.bootsnav .navbar-nav > li {
+    float: none;
+  }
+
+  nav.navbar.bootsnav .navbar-nav > li > a {
+    font-size: 18px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px; /* matches navbar/brand height to vertically center text */
+    line-height: 1;
+  }
+
+  /* Slightly increase spacing for attribute nav icons to match visual weight */
+  nav.navbar.bootsnav .attr-nav > ul > li > a {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+  }
+
+  /* Force ordering so attr-nav stays on the right regardless of DOM order */
+  nav.navbar.bootsnav .navbar-header{
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  nav.navbar.bootsnav .navbar-collapse{
+    order: 2;
+    /* already flex:1 so it centers its contents */
+  }
+
+  nav.navbar.bootsnav .attr-nav{
+    order: 3;
+    flex: 0 0 auto;
+    float: none; /* override float from main stylesheet */
+  }
+}
+
+@media (min-width: 768px) {
+  /* Make sure the navbar has enough vertical space for the larger logo */
+  nav.navbar.bootsnav {
+    min-height: 180px;
+  }
+
+  /* Center the brand vertically and constrain images to the intended size */
+  nav.navbar.bootsnav .navbar-header .navbar-brand {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+  }
+
+  nav.navbar.bootsnav .navbar-brand img {
+    max-width: 150px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    display: block;
+  }
+
+  /* Make attribute icons match vertical alignment */
+  nav.navbar.bootsnav .attr-nav {
+    display: flex;
+    align-items: center;
+    height: 180px;
+  }
+
+  nav.navbar.bootsnav .attr-nav > ul > li > a {
+    padding: 22px 16px;
+  }
+
+  /* Larger search input when visible */
+  .top-search {
+    padding: 16px 0;
+  }
+
+  .top-search input.form-control{
+    height: 56px;
+    padding: 0 16px;
+    line-height: 56px;
+  }
+
+  /* Wider side menu to feel proportional to the larger navbar */
+  .side{
+    width: 340px;
+    padding: 32px 36px;
+  }
+}
